@@ -1,0 +1,17 @@
+.pageNotFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: black;
+}
+.pageNotFound__header {
+  font-size: 25px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-right: 2px black solid;
+}
+.pageNotFound__message {
+  font-size: 20px;
+  padding: 10px 20px;
+}

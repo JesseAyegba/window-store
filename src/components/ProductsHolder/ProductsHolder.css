@@ -1,0 +1,15 @@
+.productsHolder {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .productsHolder {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1200px) {
+  .productsHolder {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
