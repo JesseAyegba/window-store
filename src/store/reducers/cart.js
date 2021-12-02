@@ -1,6 +1,19 @@
 import { actionTypes } from "../actions/actionTypes";
 
-export const cart = (state = [], action) => {
+const getCart = () => {
+  let cart = sessionStorage.getItem("cart");
+  if (cart) {
+    try {
+      return JSON.parse(cart);
+    } catch {
+      sessionStorage.removeItem("cart");
+    }
+  }
+  return [];
+};
+const initialState = getCart();
+
+export const cart = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ADD_ITEM_TO_CART:
       const inCart = () => {
@@ -13,8 +26,18 @@ export const cart = (state = [], action) => {
         return false;
       };
 
-      return inCart() ? state : [...state, action.payload];
+      inCart()
+        ? sessionStorage.setItem("cart", JSON.stringify(state))
+        : sessionStorage.setItem(
+            "cart",
+            JSON.stringify([...state, action.payload])
+          );
+      return JSON.parse(sessionStorage.getItem("cart"));
 
+    case actionTypes.REMOVE_ITEM_FROM_CART:
+      const newCart = state.filter((item) => item.id !== action.payload.id);
+      sessionStorage.setItem("cart", JSON.stringify(newCart));
+      return newCart;
     default:
       return state;
   }

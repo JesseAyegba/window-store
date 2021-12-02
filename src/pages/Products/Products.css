@@ -1,3 +1,9 @@
 .products {
   background-color: rgb(234, 240, 241);
 }
+.products__loading {
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

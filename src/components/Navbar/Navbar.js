@@ -7,7 +7,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   return (
     <nav className="navbar">
-      <div onClick={() => navigate("/")} className="navbar__logo">
+      <div onClick={() => navigate("/store")} className="navbar__logo">
         <h1>WS</h1>
       </div>
       <div className="navbar__cart">
